@@ -1,8 +1,10 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+// A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
 //Lab  -
+
+import static java.lang.System.load;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,13 +22,16 @@ public class MadLib
 
 	public MadLib()
 	{
-
+		verbs.add("run");
+		nouns.add("Jonathon Leohr");
+		adjectives.add("purple");
+		story= ("Johnathon Leohr run down the purple road");
 	}
 
 	public MadLib(String fileName)
 	{
 		//load stuff
-
+		
 		try
 		{
 			//Read the different parts of the story and concatenate the resulting
@@ -41,7 +46,7 @@ public class MadLib
 
 
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			System.out.println("Houston we have a problem!");
 		}
@@ -52,7 +57,13 @@ public class MadLib
 	{
 		try
 		{
+			Scanner reader = new Scanner(new File( "nouns.dat"));
+			while (reader.hasNextLine())
+			{
+				nouns.add(reader.next());
+			}
 
+			reader.close();			
 		}
 		catch(Exception e)
 		{
@@ -65,7 +76,13 @@ public class MadLib
 	{
 		try
 		{
-
+		Scanner reader = new Scanner(new File( "verbs.dat"));
+			while (reader.hasNextLine())
+			{
+				verbs.add(reader.next());
+			}
+			
+			reader.close();
 		}
 		catch(Exception e)
 		{
